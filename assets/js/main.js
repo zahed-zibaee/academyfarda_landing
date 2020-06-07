@@ -102,7 +102,7 @@ function dwtoast( txt ) {
     });
 
     $.ajax({
-      url: 'http://crm.academyfarda.com/submit/leads',
+      url: 'https://academyfarda.com/leads/api/submitnew/',
       method: 'POST',
       data: data,
       crossDomain: true,
