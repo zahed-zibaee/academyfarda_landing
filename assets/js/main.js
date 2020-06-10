@@ -392,4 +392,13 @@ $( document ).ready(function() {
       }); 
     setTimeout(function(){$('#alert').fadeOut();}, 5000);
     
+    //------- footer Scroll Class  js --------//  
+
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 150) {
+            $('#footer').addClass('fixed-bottom');
+        } else {
+            $('#footer').removeClass('fixed-bottom');
+        }
+    });
 });
