@@ -4312,14 +4312,14 @@ button.close {
 .trans-y-250 {
   transform: translateY(-250px);
 }
-.tras-y-100 {
-  transform: translateY(-100px);
+.trans-y-150 {
+  transform: translateY(-150px);
 }
 @media (max-width:992px) {
   .trans-y-250 {
     transform: translateY(-10px);
   }
-  .tras-y-100 {
+  .trans-y-100 {
     transform: translateY(-20px);
   }
 }
