@@ -326,17 +326,18 @@ $(document).on('click', '[data-modal]', function(e) {
     }).resize()
 
 
-      var swiper2 = new Swiper('#picture_slide', {
+    var swiper2 = new Swiper('#picture_slide', {
         slidesPerView: 4,
         initialSlide: 3,
         spaceBetween: 0,
         centeredSlides:false,
         freeMode: false,
-        // autoplay:{
-        //   delay:4000,
-        //   disableOnIntraction: false,
+        loop: true,
+        autoplay:{
+            delay:4000,
+            disableOnIntraction: false,
 
-        // } ,
+        } ,
 
         navigation: {
           nextEl: '.swiper-buttons-next',
@@ -344,6 +345,64 @@ $(document).on('click', '[data-modal]', function(e) {
         },
         pagination: {
           el: '.pic-slide-pagination',
+          clickable: true
+        },
+        on: {
+            init: function () {
+                var $wrapper = this.$wrapperEl;
+
+                var transform = $wrapper[0].style.transform.replace('translate3d', '').replace('(',  '').replace(')', '').replace(/px/g, '').split(', ')
+
+                transform[0] -= $(this.$wrapperEl).find('.swiper-slide').width() * 0.4
+
+                transform[0]+= 'px';
+                transform[1]+= 'px';
+                transform[2]+= 'px';
+
+                transform = 'translate3d(' + transform.join(', ') + ')';
+
+                setTimeout(function() {
+                    $wrapper[0].style.transform = transform;
+
+                }, 50)
+            },
+        },
+        breakpoints:{
+            991:{
+                slidesPerView: 3,
+                initialSlide: 2,
+            },
+            767:{
+                slidesPerView: 2,
+                initialSlide: 1,
+            },
+            520:{
+                slidesPerView: 1,
+                freeMode: false,
+                initialSlide: 1,
+            },
+
+        },
+    });
+    var swiper3 = new Swiper('#picture_slide2', {
+        slidesPerView: 4,
+        initialSlide: 3,
+        spaceBetween: 0,
+        centeredSlides:false,
+        freeMode: false,
+        loop: true,
+        autoplay:{
+        delay:4000,
+        disableOnIntraction: false,
+
+        } ,
+
+        navigation: {
+          nextEl: '.swiper-buttons-next2',
+          prevEl: '.swiper-buttons-prev2',
+        },
+        pagination: {
+          el: '.pic-slide-pagination2',
           clickable: true
         },
         on: {
